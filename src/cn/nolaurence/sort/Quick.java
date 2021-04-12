@@ -9,7 +9,7 @@ public class Quick extends Example{
         sort(a, 0, a.length - 1);
     }
 
-    public static void sort(Comparable[] a, int lo, int hi) {
+    private static void sort(Comparable[] a, int lo, int hi) {
         if (hi <= lo)  return;
         int j = partition(a, lo, hi);  // 切分
         sort(a, lo, j - 1);         // 排序左半部分a[lo: j-1]
