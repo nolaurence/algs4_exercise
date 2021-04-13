@@ -5,16 +5,15 @@ import java.util.Stack;
 public class Stack01 {
     public static boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
+        int count = 0;
         for (char c : s.toCharArray()) {
-            if(stack.isEmpty())
-                if (c == '{' || c == '(' || c == '[')
-                    stack.push(c);
-            else {
-                if (c == findOpposite(stack.peek()))
-                    stack.pop();
+            if (c == '{' || c == '(' || c == '[')
+                stack.push(c);
+            else if (!stack.isEmpty() && c == findOpposite(stack.peek()))
+                stack.pop();
+            count += 1;
             }
-        }
-        return !stack.isEmpty();
+        return 2 * count == s.length();
     }
 
     private static char findOpposite(char c) {
@@ -25,7 +24,7 @@ public class Stack01 {
     }
 
     public static void main(String[] args) {
-        String s = "([)]";
+        String s = "()";
         System.out.println(isValid(s));
     }
 }
