@@ -17,6 +17,7 @@ public class SumOfTwoNum {
         return result;
     }
 
+    // credit: https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/description/
     public int[] twoSumOfficial(int[] numbers, int target) {
         if (numbers == null) return null;
         int i = 0, j = numbers.length - 1;
